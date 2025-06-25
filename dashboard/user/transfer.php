@@ -105,9 +105,20 @@
           </div>
         </ul>
       </div>
-      <!-- profile icon -->
+      <!-- profile image -->
       <div class="profile">
-        <a href="profile.php"><img src="../../src/image/57.PNG" class="w-[60%] h-[60%] lg:w-[80%]"></a>
+        <a href="profile.php">
+          <img alt="Profile image" id="userImage" class="w-[40px] h-[40px] object-cover rounded-full cursor-pointer" src="">
+        </a>
+        <script>
+          const getImage = localStorage.getItem('userImage');
+          const userImage = document.getElementById('userImage');
+          if (getImage) {
+            userImage.src = getImage;
+          } else {
+            userImage.src = "../../src/image/57.PNG"
+          }
+        </script>
       </div>
     </nav>
   </header>
