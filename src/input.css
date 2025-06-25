@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  /* navigation */
+  .navigation {transition: all .8s ease-in; z-index: 1;}
+  .nav_links .sec_links {transition: all 2s ease;}
+  .nav_links li:hover .sec_links {display: block;}
+  .menu-btn-burger {
+    position: relative;
+  }
+  .menu-icon {
+    width: 30px;
+    height: 3px;
+    cursor: pointer;
+    background-color: #000;
+    transition: all .5s ease-in-out;
+    box-shadow: 2px 3px 5px grey;
+  }
+  .menu-icon::before,
+  .menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 3px;
+    background-color: #000;
+    transition: all .5s ease-in-out;
+    box-shadow: 2px 3px 5px #ccc;
+  }
+  .menu-icon::before {
+    transform: translateY(-8px);
+  }
+  .menu-icon::after {
+    transform: translateY(8px);
+  }
+  /* menu btn burger effect */
+  .menu-btn-burger.open .menu-icon {
+    box-shadow: none;
+    transform: translateX(-50px);
+    background-color: transparent;
+  }
+  .menu-btn-burger.open .menu-icon::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .menu-btn-burger.open .menu-icon::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+  .navigation.show {top: 88px;}
+  /* main for index */
+  .guides > :not(:last-child, :first-child) {
+    border-bottom: 1px solid cadetblue;
+    padding-bottom: 10px;
+  }
+  /* to disable the increment and decrement of input type = number */
+  input[type = 'number']::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+  }
+  /* to remove the input with file type default border */
+  /* input[type="file"]::-webkit-file-upload-button {visibility: hidden} */
+  /* css for transaction-history.php  */
+  /* .hidden-input {display: none;} */
+ 
+}
