@@ -15,16 +15,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./dist/output.css">
   <!-- fontawesome -->
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/fontawesome.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/brands.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/solid.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/regular.css">
+  <script src="https://kit.fontawesome.com/c91674d225.js" crossorigin="anonymous"></script>
   <!-- site logo -->
   <link rel="icon" type="image/x-icon" href="./src/image/logo.jpg">
   <!-- Animation on scroll -->
   <script src="./jquery-3.6.0.js"></script>
-  <link rel="stylesheet" href="./aos-master/dist/aos.css">
-  <script src="./aos-master/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <!-- google translator -->
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <title>Blueseedfinance | Home</title>
@@ -310,6 +306,7 @@
     </div>
   </footer>
   <!-- animation on scroll pluggins -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1200

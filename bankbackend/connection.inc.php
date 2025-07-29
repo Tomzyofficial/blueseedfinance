@@ -2,7 +2,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'blueseedfinance';
+$database = 'blueseedfinance_db';
 $conn = mysqli_connect($host, $username, $password, $database);
 
 // $host = 'localhost';

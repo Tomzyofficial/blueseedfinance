@@ -18,10 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="dist/output.css">
   <!-- fontawesome -->
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/fontawesome.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/brands.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/solid.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/regular.css">
+  <script src="https://kit.fontawesome.com/c91674d225.js" crossorigin="anonymous"></script>
   <!-- site logo -->
   <link rel="icon" type="image/x-icon" href="src/image/logo.jpg">
   <script src="jquery-3.6.0.js"></script>
@@ -120,7 +117,7 @@
           $page = isset($_GET['pages']) ? $_GET['pages'] : 1; // get the  current page number
 
           $start_from = ($page - 1) * $records_per_page;
-          $sql = "SELECT * FROM user_details LIMIT $start_from, $records_per_page";
+          $sql = "SELECT * FROM users_details LIMIT $start_from, $records_per_page";
           $result = $conn->query($sql);
 
           // display data on the frontend
@@ -141,7 +138,7 @@
                   echo '<td class="border border-slate-500">' . $row["phone"] . '</td>';
                   echo '<td class="border border-slate-500">' . $row["pwd"] . '</td>';
                   echo '<td class="border border-slate-500">' . $row["checking_account"] . '</td>';
-                  echo '<td class="border border-slate-500">' . $row["savings_account"] . '</td>';
+                  echo '<td class="border border-slate-500">' . $row["saving_account"] . '</td>';
                   echo '<td class="border border-slate-500">' . $row["date_time"] . '</td>';
                   echo "<td class='border border-slate-500 text-center'><a href='edit-user.php?id=" . $row["id"] . "' class='underline decoration-white'><i class='fa-regular fa-pen-to-square'></i></a></td>";
                   echo "<td class='border border-slate-500 text-center'><a href='delete-user.php?id=" . $row["id"] . "'  class='underline decoration-white'><i class='fa-solid fa-trash'></i></a></td>";
@@ -150,7 +147,7 @@
             }
 
             // pagination links
-            $sql = "SELECT COUNT(id) AS total FROM user_details";
+            $sql = "SELECT COUNT(id) AS total FROM users_details";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             $total_records = $row['total'];

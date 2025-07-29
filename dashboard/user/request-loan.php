@@ -31,10 +31,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../../dist/output.css">
   <!-- fontawesome -->
-  <link rel="stylesheet" href="../../fontawesome-6.4.0-web/css/fontawesome.css">
-  <link rel="stylesheet" href="../../fontawesome-6.4.0-web/css/brands.css">
-  <link rel="stylesheet" href="../../fontawesome-6.4.0-web/css/solid.css">
-  <link rel="stylesheet" href="../../fontawesome-6.4.0-web/css/regular.css">
+  <script src="https://kit.fontawesome.com/c91674d225.js" crossorigin="anonymous"></script>  
   <!-- site logo -->
   <link rel="icon" type="image/x-icon" href="../../src/image/logo.jpg">
   <script src="../../jquery-3.6.0.js"></script>
@@ -162,11 +159,11 @@
         </div>
         <div>
           <label for="amount">Amount<span class="text-red-500">*</span></label>
-          <input type="number" name="amount" autocomplete="off" placeholder="$ Amount" class="pl-3 w-[100%] p-2 caret-white bg-[#0e1726] transition rounded-sm focus:outline-none focus:ring focus:ring-[#1b2e4b] md:w-[100%]">
+          <input type="number" name="amount" autocomplete="off" placeholder="1000" class="pl-3 w-[100%] p-2 caret-white bg-[#0e1726] transition rounded-sm focus:outline-none focus:ring focus:ring-[#1b2e4b] md:w-[100%]">
         </div>
         <div>
           <label for="purpose">Purpose<span class="text-red-500">*</span></label><br>
-          <textarea name="purpose" autocomplete="on" id="purpose" placeholder="Purpose for loan"  class="pl-3 w-[100%] p-2 caret-white bg-[#0e1726] transition rounded-sm focus:outline-none focus:ring focus:ring-[#1b2e4b] md:w-[100%]"></textarea>
+          <textarea name="purpose" autocomplete="on" id="purpose" placeholder="Purpose for loan"  class="pl-3 w-[100%] p-2 caret-white bg-[#0e1726] transition rounded-sm focus:outline-none focus:ring focus:ring-[#1b2e4b] md:w-[100%]" style="resize: none;"></textarea>
         </div> 
         <div>
           <button type="submit" name="submit" class="font-bold bg-[#1b2e4b] border-[1px] border-[#0e1726] block w-full h-[100%] p-2 md:w-[100%] active:animation rounded-sm" id="process">Submit</button>

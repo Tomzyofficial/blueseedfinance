@@ -11,11 +11,6 @@
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="dist/output.css">
-  <!-- fontawesome -->
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/fontawesome.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/brands.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/solid.css">
-  <link rel="stylesheet" href="fontawesome-6.4.0-web/css/regular.css">
   <!-- site logo -->
   <link rel="icon" type="image/x-icon" href="src/image/logo.jpg">
   <script src="jquery-3.6.0.js"></script>
