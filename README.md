@@ -8,11 +8,14 @@ The Demo Online Banking Website is a full-stack web application that simulates t
 
 🔧 Technologies Used
 Frontend:
-PHP
+JavaScript for site interactive
 
 Tailwind CSS for styling
 
-Backend/RDBMS:
+Backend:
+PHP
+
+RDBMS:
 MySQL
 
 🔐 Key Features
