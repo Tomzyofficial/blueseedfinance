@@ -2,7 +2,7 @@
 
 ## 📖 Overview
 
-The Demo Online Banking Website is a full-stack web application that simulates the core functionalities of a modern digital banking platform. While it is not connected to any financial third party backend, the purpose of the website is to demostrate user-friendly interface that meets standards-compliant. This application allows users to register, log in securely, manage their account, view transactions, transfer funds, and more.
+This Demo Online Banking Website is a full-stack web application that simulates the core functionalities of a modern digital banking platform. While it is not connected to any financial third party backend, the purpose of the website is to demostrate user-friendly interface that meets standards-compliant. This application allows users to register, log in securely, manage their account, view transactions, transfer funds (not real funds), and more.
 
 **Disclaimer: This project is built for educational/demo purposes and should not be used in production without significant security audits and compliance with financial regulations.**
 
@@ -22,7 +22,7 @@ MySQL
 ✅ Authentication
 User registration & login
 
-Sending email with NodeMailer
+Sending email with PHPMailer
 
 🧑‍💼 User Dashboard
 View account balance and user profile
@@ -44,7 +44,5 @@ Freeze/Unfreeze accounts
 Adjust balances (for testing)
 
 Mobile responsiveness
-
-Future features
 
 Made with love ❤
