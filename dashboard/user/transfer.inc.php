@@ -1,4 +1,7 @@
 <?php
+
+  require_once __DIR__ . '/../../config.php';
+
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception; 
   // use PHPMailer\PHPMailer\SMTP;
@@ -39,21 +42,21 @@
         while ($row = $selectResult->fetch_assoc()) {
           $checkingValue = str_replace('$', '', $row['total_checking']);
           if ($checkingValue >  0 AND $amount < $checkingValue) {
-            // restrict user from sending money where rows with the transfer_status = PENDING in the transaction_debit table per user exceeds 3
+            // restrict user from sending money where rows with the transfer_status = PENDING in the transaction_debit table per user exceeds 10
             $limitSql = "SELECT * FROM transaction_debit WHERE sending_from = 'Checking account' AND transfer_status = 'PENDING' AND transaction_id = '$loggedInId'";
 
             $limitQuery = $conn->query($limitSql);
             $DataRows = $limitQuery->num_rows; 
-            if ($DataRows == 3) {
+            if ($DataRows == 10) {
               // email sending part
               // Server settings
               $mail = new PHPMailer(true); 
               $mail->SMTPDebug = 2; // Enable verbose debugging
               $mail->isSMTP();
-              $mail->Host = 'smtp.gmail.com';
+              $mail->Host = $_ENV['SMTP_HOST'];
               $mail->SMTPAuth = true;
-              $mail->Username = 'chukwuebuka.ibeh54@gmail.com';
-              $mail->Password = 'kymawybrqflisrdo';
+              $mail->Username = $_ENV['SMTP_EMAIL'];
+              $mail->Password = $_ENV['SMTP_PASSWORD'];
               $mail->SMTPSecure = 'ssl';
               $mail->Port = 465;
 
@@ -66,7 +69,7 @@
               } 
 
               // Recipients
-              $mail->setFrom('chukwuebuka.ibeh54@gmail.com', 'No Reply');
+              $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
               $mail->addAddress($email, $firstName); 
 
               // Content
@@ -76,7 +79,7 @@
 
               $headers = "MIME-Version: 1.0\r\n";
               $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-              $headers .= "From: $mail->setFrom <$mail->setFrom>\r\n";
+              $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
               
               $mail->send(); 
               
@@ -116,10 +119,10 @@
             // Server settings
             $mail->SMTPDebug = 2; // Enable verbose debugging
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['SMTP_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'chukwuebuka.ibeh54@gmail.com';
-            $mail->Password = 'kymawybrqflisrdo';
+            $mail->Username = $_ENV['SMTP_EMAIL'];
+            $mail->Password = $_ENV['SMTP_PASSWORD'];
             $mail->SMTPSecure = 'ssl'; 
             $mail->Port = 465;  
 
@@ -138,7 +141,7 @@
               $checkingMasked = substr_replace($checkingAccount, $replacement, $checkingMaskedStart, $checkingMaskedLength);
             }
             // Recipients
-            $mail->setFrom('chukwuebuka.ibeh54@gmail.com', 'No Reply');
+            $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
             $mail->addAddress($email, $firstName); 
 
             // Content
@@ -181,7 +184,7 @@
 
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-            $headers .= "From: $mail->setFrom <$mail->setFrom>\r\n";
+            $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
             $mail->send();
 
             if ($mail) {
@@ -226,21 +229,21 @@
           $savingsValue = str_replace('$', '', $row['total_savings']);
 
           if ($savingsValue >  0 AND $amount < $savingsValue) {
-            // restrict user from sending money where rows with the transfer_status = PENDING in the transaction_debit table per user exceeds 3
+            // restrict user from sending money where rows with the transfer_status = PENDING in the transaction_debit table per user exceeds 10
             $limitSql = "SELECT * FROM transaction_debit WHERE sending_from = 'Savings account' AND transfer_status = 'PENDING' AND transaction_id = '$loggedInId'";
 
             $limitQuery = $conn->query($limitSql);
             $DataRows = $limitQuery->num_rows;
-            if ($DataRows == 3) {
+            if ($DataRows == 10) {
               // email sending part
               $mail = new PHPMailer(true); 
               // Server settings
               $mail->SMTPDebug = 2; // Enable verbose debugging
               $mail->isSMTP();
-              $mail->Host = 'smtp.gmail.com';
+              $mail->Host = $_ENV['SMTP_HOST'];
               $mail->SMTPAuth = true;
-              $mail->Username = 'chukwuebuka.ibeh54@gmail.com';
-              $mail->Password = 'kymawybrqflisrdo';
+              $mail->Username = $_ENV['SMTP_EMAIL'];
+              $mail->Password = $_ENV['SMTP_PASSWORD'];
               $mail->SMTPSecure = 'ssl';
               $mail->Port = 465;  
 
@@ -254,7 +257,7 @@
               } 
 
               // Recipients
-              $mail->setFrom('chukwuebuka.ibeh54@gmail.com', 'No Reply');
+              $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
               $mail->addAddress($email, $firstName); 
 
               // Content
@@ -277,7 +280,7 @@
             break;
           }
         }
-        // if total savings account does not have money iinside throw an error
+        // if total savings account does not have money inside throw an error
         if ($insufficientFunds) {
           $_SESSION['errMessage'] = 'Insufficient balance';
           header('Location: transfer.php');
@@ -300,10 +303,10 @@
             // Server settings
             $mail->SMTPDebug = 2; // Enable verbose debugging
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['SMTP_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'chukwuebuka.ibeh54@gmail.com';
-            $mail->Password = 'kymawybrqflisrdo';
+            $mail->Username = $_ENV['SMTP_EMAIL'];
+            $mail->Password = $_ENV['SMTP_PASSWORD'];
             $mail->SMTPSecure = 'ssl'; 
             $mail->Port = 465;  
 
@@ -323,7 +326,7 @@
             }
 
             // Recipients
-            $mail->setFrom('chukwuebuka.ibeh54@gmail.com', 'No Reply');
+            $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
             $mail->addAddress($email, $firstName); 
 
             // Content
@@ -365,7 +368,7 @@
             " ;
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-            $headers .= "From: $mail->setFrom <$mail->setFrom>\r\n";
+            $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
             $mail->send();
  
             if ($mail) {

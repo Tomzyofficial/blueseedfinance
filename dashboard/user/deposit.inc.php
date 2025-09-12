@@ -1,4 +1,7 @@
 <?php
+
+  require_once __DIR__ . "/../../config.php";
+  
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception; 
   // use PHPMailer\PHPMailer\SMTP;
@@ -63,10 +66,10 @@
             // Server settings
             $mail->SMTPDebug = 2; // Enable verbose debugging
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['SMTP_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'chukwuebuka.ibeh54@gmail.com';
-            $mail->Password = 'kymawybrqflisrdo';
+            $mail->Username = $_ENV['SMTP_EMAIL'];
+            $mail->Password = $_ENV['SMTP_PASSWORD'];
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465; 
     
@@ -86,7 +89,7 @@
             } 
     
             // Recipients
-            $mail->setFrom('chukwuebuka.ibeh54@gmail.com', 'No Reply');
+            $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
             $mail->addAddress($email, $firstName); 
     
             // Content
@@ -128,7 +131,7 @@
             " ;
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-            $headers .= "From: chukwuebuka.ibeh54@gmail.com\r\n";
+            $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
             $mail->send(); 
 
             if ($mail) {
@@ -181,10 +184,10 @@
             // Server settings
             $mail->SMTPDebug = 2; // Enable verbose debugging
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['SMTP_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'chukwuebuka.ibeh54@gmail.com';
-            $mail->Password = 'kymawybrqflisrdo';
+            $mail->Username = $_ENV['SMTP_EMAIL'];
+            $mail->Password = $_ENV['SMTP_PASSWORD'];
             $mail->SMTPSecure = 'ssl'; 
             $mail->Port = 465; 
     
@@ -204,7 +207,7 @@
             } 
     
             // Recipients
-            $mail->setFrom('chukwuebuka.ibeh54@gmail.com', 'No Reply');
+            $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
             $mail->addAddress($email, $firstName); 
     
             // Content 
@@ -246,7 +249,7 @@
             " ;
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-            $headers .= "From: chukwuebuka.ibeh54@gmail.com\r\n";
+            $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
             $mail->send(); 
 
             if ($mail) {
