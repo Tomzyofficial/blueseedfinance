@@ -39,7 +39,7 @@
       </div>
       <!-- fetch user details for edit -->
       <?php
-        $sql = "SELECT * FROM user_details WHERE id = '$searchParam'";
+        $sql = "SELECT * FROM users_details WHERE id = '$searchParam'";
         $query = $conn->query($sql);
         while ($row = $query->fetch_assoc()) {
           $id = $row['id'];
@@ -53,7 +53,7 @@
           $phone = $row['phone'];
           $password = $row['pwd'];
           $checking = $row['checking_account'];
-          $savings = $row['savings_account'];
+          $savings = $row['saving_account'];
           $date = $row['date_time'];
         }
       ?>

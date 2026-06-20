@@ -1,6 +1,4 @@
 <?php
-
-  require_once __DIR__ . "/../../config.php";
   
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception; 
@@ -66,10 +64,10 @@
             // Server settings
             $mail->SMTPDebug = 2; // Enable verbose debugging
             $mail->isSMTP();
-            $mail->Host = $_ENV['SMTP_HOST'];
+            $mail->Host = "smtp.privateemail.com";
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['SMTP_EMAIL'];
-            $mail->Password = $_ENV['SMTP_PASSWORD'];
+            $mail->Username = "alerts@blueseedfinance.com";
+            $mail->Password = "Blueseedfinance1@";
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465; 
     
@@ -89,7 +87,7 @@
             } 
     
             // Recipients
-            $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
+            $mail->setFrom("alerts@blueseedfinance.com", 'No Reply');
             $mail->addAddress($email, $firstName); 
     
             // Content
@@ -129,9 +127,9 @@
               <a href='https://blueseedfinance.com'>https://blueseedfinance.com</a> <br><br><br>
               Your account information is private. Please do not disclose your login credentials to anyone. Avoid clicking on suspicious links in email. If in doubt, kindly contact our contact support at <a href='mailto:contact@blueseedfinance.com'>contact@blueseedfinance.com</a>
             " ;
-            $headers = "MIME-Version: 1.0\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-            $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
+            // $headers = "MIME-Version: 1.0\r\n";
+            // $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+            // $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
             $mail->send(); 
 
             if ($mail) {
@@ -184,10 +182,10 @@
             // Server settings
             $mail->SMTPDebug = 2; // Enable verbose debugging
             $mail->isSMTP();
-            $mail->Host = $_ENV['SMTP_HOST'];
+            $mail->Host = "smtp.privateemail.com";
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['SMTP_EMAIL'];
-            $mail->Password = $_ENV['SMTP_PASSWORD'];
+            $mail->Username = "alerts@blueseedfinance.com";
+            $mail->Password = "Blueseedfinance1@";
             $mail->SMTPSecure = 'ssl'; 
             $mail->Port = 465; 
     
@@ -207,7 +205,7 @@
             } 
     
             // Recipients
-            $mail->setFrom($_ENV['SMTP_EMAIL'], 'No Reply');
+            $mail->setFrom("alerts@blueseedfinance.com", 'No Reply');
             $mail->addAddress($email, $firstName); 
     
             // Content 
@@ -247,9 +245,9 @@
               <a href='https://blueseedfinance.com'>https://blueseedfinance.com</a> <br><br><br>
               Your account information is private. Please do not disclose your login credentials to anyone. Avoid clicking on suspicious links in email. If in doubt, kindly contact our contact support at <a href='mailto:contact@blueseedfinance.com'>contact@blueseedfinance.com</a>
             " ;
-            $headers = "MIME-Version: 1.0\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-            $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
+            // $headers = "MIME-Version: 1.0\r\n";
+            // $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+            // $headers .= "From: ".$_ENV['SMTP_EMAIL']."\r\n";
             $mail->send(); 
 
             if ($mail) {
